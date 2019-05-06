@@ -1,0 +1,357 @@
+@import 'color';
+@import 'mixins';
+@import 'placeholders';
+
+@font-face {
+    font-family:'IBM Plex Mono';
+    font-display:swap;
+    src:url('/fonts/IBMPlex/IBMPlexMono-Regular.woff2') format('woff2')
+}
+
+@font-face {
+    font-family:'IBM Plex Mono';
+    font-display:swap;
+    font-weight:bold;
+    src:url('/fonts/IBMPlex/IBMPlexMono-Bold.woff2') format('woff2')
+}
+
+@font-face {
+    font-family:'Great Vibes';
+    src:url('/fonts/GreatVibes/GreatVibes-Regular.otf') format('otf')
+}
+
+html {
+    font-size: 16px;
+    color: $black;
+    line-height: 1.5;
+}
+
+body {
+    font-family: "IBM Plex Mono","monospace","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+a {
+    outline: 0;
+}
+
+/* Main Section */
+.fko-section-main {
+    position: relative;
+    height: 100vh;
+    background: url(../images/bg-main.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+    .fko-section-main:after, .fko-section-main:before {
+        @extend %fko-pseudo-clear;
+    }
+
+    .fko-section-main__content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        color: $white;
+        background-color: $bg-black--opacity;
+        font-family:'Grand Hotel', cursive;
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .fko-section-main__content__ola {
+        margin: .5rem .5rem;
+        text-align: center;
+    }
+
+    .fko-section-main__content__ola2 {
+        position: absolute;
+        width: 95%;
+        bottom: 0;
+        margin: .5rem .5rem;
+        text-align: center;
+        animation:opac 5s !important;
+    }
+
+.fko-section-about {
+    padding: 2rem 1rem;
+    height: 100%;
+    position: relative;
+    display: flex;
+}
+    .fko-section-about:after, .fko-section-about:before {
+        @extend %fko-pseudo-clear;
+    }
+    .fko-section-about--part1,
+    .fko-section-about--part8 {
+        background-color: $bg-purple-light;
+    }
+    .fko-section-about--part2,
+    .fko-section-about--part11 {
+        background-color: $bg-purple-dark;
+        color: $white;
+    }
+    .fko-section-about--part3, 
+    .fko-section-about--part12 {
+        background-color: $bg-yellow-light;
+    }
+    .fko-section-about--part4
+    .fko-section-about--part10 {
+        background-color: $bg-light-gray;
+    }
+    .fko-section-about--part5 {
+        background-color: $bg-purple;
+        color: $white;
+    }
+    .fko-section-about--part7,
+    .fko-section-about--part16 {
+        background-color: $bg-yellow;
+    }
+    .fko-section-about--part9 {
+        background-color: $bg-red-dark;
+        color: $white;
+    }
+    .fko-section-about--part13 {
+        background-color: $bg-blue;
+        color: $white;
+    }
+    .fko-section-about--part14 {
+        background-color: $bg-creme;
+    }
+    .fko-section-about--part15 {
+        background-color: $bg-pink;
+        color: $white;
+    }
+
+    .fko-section-about__part {
+        @include fko-row('tablet', true);
+        align-items: center;
+    }
+
+    .fko-section-about__part__picture,
+    .fko-section-about__part__video {
+        padding: .6rem;
+        max-width: 500px;
+        margin: 0 auto;
+        width: calc(100% - 1.6rem);
+        position: relative;
+        @extend %fko-box-depth;
+    }
+
+    .fko-section-about__part__video {
+        @include fko-col(7);
+    }
+        .fko-section-about__part__picture__img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+    .fko-section-about__part__video__video {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .fko-section-about__part__content__happy {
+        font-family:'Grand Hotel', cursive;
+        font-size: 2.5rem;
+        text-align: right;
+    }
+
+.fko-footer {
+    text-align: center;
+    height: 40px;
+    background-color: $bg-blue;
+    color: $white;
+    padding-top: 1rem;
+}
+
+@include mq('tablet') {
+    .fko-section-main {
+        background: url(../images/bg-main-tablet.jpeg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+        .fko-section-main__content__ola {
+            text-align: left;
+        }
+
+        .fko-section-main__content__ola2 {
+            text-align: right;
+        }
+
+    .fko-section-about__part--part2,
+    .fko-section-about__part--part5,
+    .fko-section-about__part--part7,
+    .fko-section-about__part--part9,
+    .fko-section-about__part--part11,
+    .fko-section-about__part--part13,
+    .fko-section-about__part--part15 {
+        flex-direction: row-reverse;
+    }
+    .fko-section-about__part__picture {
+        @include fko-col(5);
+    }
+        .fko-section-about__part__picture--part3,
+        .fko-section-about__part__picture--part4 {
+            @include fko-col(7);
+        }
+    .fko-section-about__part__video {
+        @include fko-col(4);
+    }
+    .fko-section-about__part__content {
+        @include fko-col(7);
+        padding: 0 0 0 2rem;
+    }
+        .fko-section-about__part__content--part2 {
+            padding: 0 2rem 0 0;
+        }
+        .fko-section-about__part__content--part3,
+        .fko-section-about__part__content--part4,
+        .fko-section-about__part__content--part16 {
+            @include fko-col(5);
+        }
+}
+
+@include mq('tablet-custom') {
+    .fko-section-main {
+        background: url(../images/bg-main-desktop.jpeg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+    .fko-section-about {
+        min-height: 100vh;
+    }
+
+    .fko-section-about__part {
+        @include fko-row('desktop', true);
+    }
+    .fko-section-about__part__picture {
+        @include fko-col(4);
+    }
+        .fko-section-about__part__picture--part3,
+        .fko-section-about__part__picture--part4,
+        .fko-section-about__part__picture--part5,
+        .fko-section-about__part__picture--part6,
+        .fko-section-about__part__picture--part7,
+        .fko-section-about__part__picture--part8,
+        .fko-section-about__part__picture--part9,
+        .fko-section-about__part__picture--part10,
+        .fko-section-about__part__picture--part11,
+        .fko-section-about__part__picture--part12,
+        .fko-section-about__part__picture--part13,
+        .fko-section-about__part__picture--part14,
+        .fko-section-about__part__picture--part15 {
+            @include fko-col(6);
+        }
+    
+    .fko-section-about__part__video {
+        @include fko-col(4);
+    }
+    .fko-section-about__part__content {
+        @include fko-col(8);
+        padding-left: 2rem;
+    }
+        .fko-section-about__part__content--part3,
+        .fko-section-about__part__content--part4,
+        .fko-section-about__part__content--part5,
+        .fko-section-about__part__content--part6,
+        .fko-section-about__part__content--part7,
+        .fko-section-about__part__content--part8,
+        .fko-section-about__part__content--part9,
+        .fko-section-about__part__content--part10,
+        .fko-section-about__part__content--part11,
+        .fko-section-about__part__content--part12,
+        .fko-section-about__part__content--part13,
+        .fko-section-about__part__content--part14,
+        .fko-section-about__part__content--part15,
+        .fko-section-about__part__content--part16 {
+            @include fko-col(5);
+        }
+}
+
+@include mq('desktop') {
+    .fko-section-about__part__picture--part5,
+    .fko-section-about__part__picture--part6,
+    .fko-section-about__part__picture--part7,
+    .fko-section-about__part__picture--part8,
+    .fko-section-about__part__picture--part9,
+    .fko-section-about__part__picture--part10,
+    .fko-section-about__part__picture--part11,
+    .fko-section-about__part__picture--part12,
+    .fko-section-about__part__picture--part13,
+    .fko-section-about__part__picture--part14,
+    .fko-section-about__part__picture--part15 {
+        @include fko-col(7);
+    }
+    
+    .fko-section-about__part__video {
+        @include fko-col(3);
+    }
+    .fko-section-about__part__content--part5,
+    .fko-section-about__part__content--part6,
+    .fko-section-about__part__content--part7,
+    .fko-section-about__part__content--part8,
+    .fko-section-about__part__content--part9,
+    .fko-section-about__part__content--part10,
+    .fko-section-about__part__content--part11,
+    .fko-section-about__part__content--part12,
+    .fko-section-about__part__content--part13,
+    .fko-section-about__part__content--part14,
+    .fko-section-about__part__content--part15,
+    .fko-section-about__part__content--part16 {
+        @include fko-col(5);
+    }
+}
+
+@include mq('desktop-wide') {
+    .fko-section-main {
+        background: url(../images/bg-main-fhd.jpeg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .fko-section-main__content {
+        font-size: 4rem;
+    }
+    
+    .fko-section-about__part__video {
+        @include fko-col(4);
+    }
+}
+
+
+.fko-animate-right {
+    animation:animateright 0.4s;
+}
+.fko-animate-opacity { 
+    animation:opac 3s;
+}
+
+@keyframes opac {
+    from {
+        opacity:0
+    } to {
+        opacity:1
+    }
+}
+
+@keyframes animateright {
+    from {
+        right:-300px;
+        opacity:0
+    } to {
+        right:0;
+        opacity:1
+    }
+}
+
+@keyframes blink-caret {
+    50% {border-color: transparent }
+}

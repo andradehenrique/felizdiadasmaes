@@ -1,0 +1,11 @@
+{% extends 'layout/default.twig' %}
+
+{% block content %}
+
+<section class="fko-section-main">
+    {{ include('/content/main.twig') }}
+</section>
+{{ include('/partials/about.twig') }}
+{{ include('/partials/video.twig') }}
+
+{% endblock %}

@@ -1,0 +1,51 @@
+version: '3'
+
+networks:
+    mamae:
+        driver: bridge
+
+services:
+    app:
+        build:
+          context: .
+          dockerfile: ./docker/php.dockerfile
+        networks:
+          - mamae
+        container_name: mamae-app
+        ports:
+            - "8981:80"
+        volumes:
+            - .:/var/www/html
+            - ./docker/config/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    #     links:
+    #         - db
+    node:
+        build:
+          context: .
+          dockerfile: ./docker/node.dockerfile
+        networks:
+          - mamae
+        container_name: mamae-node
+        ports:
+            - "49001:8080"
+        volumes:
+          - .:/usr/src/app/
+          - /usr/src/app/node_modules
+    # db:
+    #     build:
+    #       context: .
+    #       dockerfile: ./docker/mysql.dockerfile
+    #     networks:
+    #       - mamae
+    #     container_name: mamae-db
+    #     ports:
+    #         - "3338:3306"
+    #     volumes:
+    #         - ./mysql:/var/lib/mysql
+    #         - ./docker/config/mycustom.cnf:/etc/mysql/conf.d/mycustom.cnf
+    #     environment:
+    #         - MYSQL_ROOT_PASSWORD=root
+    #         - MYSQL_DATABASE=personal_page
+    #         - MYSQL_USER=personal_page_user
+    #         - MYSQL_PASSWORD=P3rs0n@lP@g3
+    

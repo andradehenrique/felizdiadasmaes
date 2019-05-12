@@ -5,19 +5,19 @@
 @font-face {
     font-family:'IBM Plex Mono';
     font-display:swap;
-    src:url('/fonts/IBMPlex/IBMPlexMono-Regular.woff2') format('woff2')
+    src:url('../fonts/IBMPlex/IBMPlexMono-Regular.woff2') format('woff2')
 }
 
 @font-face {
     font-family:'IBM Plex Mono';
     font-display:swap;
     font-weight:bold;
-    src:url('/fonts/IBMPlex/IBMPlexMono-Bold.woff2') format('woff2')
+    src:url('../fonts/IBMPlex/IBMPlexMono-Bold.woff2') format('woff2')
 }
 
 @font-face {
     font-family:'Great Vibes';
-    src:url('/fonts/GreatVibes/GreatVibes-Regular.otf') format('otf')
+    src:url('../fonts/GreatVibes/GreatVibes-Regular.otf') format('otf')
 }
 
 html {
